@@ -1,0 +1,22 @@
+{
+    "title": "Web Design and Development",
+    "instructor": "Gerald Aden",
+    "location": {
+        "street": "",
+        "city": "Wilsonville",
+        "state": "Oregon",
+        "zip": ""
+    },
+    "capacity": 30,
+    "students": [
+        {
+            "firstName": "Tom",
+            "lastName": "Smith"
+        },
+        {
+            "firstName": "Mary",
+            "lastName": "Jones"
+        }
+    ],
+    "active": true
+}
