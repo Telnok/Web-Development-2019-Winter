@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
+    "bdi": "docker build -t webapp .",
+    "rdc": "docker rm -f webapp",
+    "rndc": "docker run -d --name webapp -p 8080:80 webapp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
