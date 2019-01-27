@@ -5,6 +5,7 @@ const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const inject = require('gulp-inject');
+const removeCode = require('gulp-remove-code');
 
 let htmlPaths = [
   'app/index.html', 
@@ -20,6 +21,7 @@ function html() {
   return src(htmlPaths)
       .pipe(inject(src(['./build/js/vendor.min.js', './build/js/*.js', './build/**/*.css'], { read: false }),
         {ignorePath: 'build', addRootSlash: false }))
+      .pipe(removeCode({ production: true }))
       .pipe(dest('build'));
 }
 

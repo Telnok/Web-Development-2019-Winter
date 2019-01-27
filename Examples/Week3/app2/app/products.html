@@ -27,15 +27,18 @@
             <span class='menu-item'><a href='index.html'>Home</a></span>
             <span class='menu-item'><a href='registration.html'>Registration</a></span>
         </div>
+        
+        <!-- inject:js -->
+        <!-- endinject -->
 
-        <script src='scripts/products.js'></script>
+        <!--removeIf(production)-->
+        <script src='js/products.js'></script>
+        <!--endRemoveIf(production)-->
+
         <script type="text/javascript">
             $(document).ready(function(){
                 displayProducts();
             });
         </script>
-        
-        <!-- inject:js -->
-        <!-- endinject -->
     </body>
 </html>
