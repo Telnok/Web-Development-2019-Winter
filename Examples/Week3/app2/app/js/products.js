@@ -1,18 +1,21 @@
+function initializeProducts() {
+    var data = getTestProducts();
+    displayProducts(data.products);
+}
+
 function getTestProducts() {
     return JSON.parse(testProducts);
 }
 
-function displayProducts() {
+function displayProducts(products) {
 
-    var data = getTestProducts();
+    for(i = 0; i < products.length; i++) {
 
-    for(i = 0; i < data.products.length; i++) {
-
-        console.log('name: ' + data.products[i].name);
+        console.log('name: ' + products[i].name);
         
-        var name = data.products[i].name;
-        var price = data.products[i].price;
-        var available = data.products[i].available ? 'yes' : 'no';
+        var name = products[i].name;
+        var price = products[i].price;
+        var available = products[i].available ? 'yes' : 'no';
         var markup = "<tr><td>" + name + "</td><td>$" + price + "</td><td>" + available + "</td></tr>";
 
         $("table tbody").append(markup);

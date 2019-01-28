@@ -15,17 +15,19 @@
 
         <form>
             <div class='form-entry'>
-                First Name: <input id='firstName' type='text'/>
+                First Name: <input id='first-name' type='text'/>
             <div>
 
             <div class='form-entry'>
-                Last Name: <input id="lastName" type='text'/>
+                Last Name: <input id="last-name" type='text'/>
             </div>
 
             <div class='form-entry'>
-                <input type='submit' value='Submit'/>
+                <input id='submit-btn' type='button' value='Submit'/>
             </div>
         </form>
+
+        <div id='error'></div>
 
         <div class="menu-bar">
             <span class="menu-item"><a href="index.html">Home</a></span>
@@ -41,7 +43,7 @@
 
         <script>
             $(document).ready(function() {
-                checkRegistration();
+                initializeRegistration();
             });
         </script>
     </body>
