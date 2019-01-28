@@ -6,6 +6,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const inject = require('gulp-inject');
 const removeCode = require('gulp-remove-code');
+var sourcemaps = require('gulp-sourcemaps');
 
 let vendorPackages = [
   'node_modules/jquery/dist/jquery.min.js',
@@ -23,8 +24,10 @@ function html() {
 
 function js() {
   return src('app/js/*.js', { sourcemaps: true })
+    .pipe(sourcemaps.init())
     .pipe(concat('app.min.js'))
     .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('build/js'));
 }
 
@@ -36,8 +39,10 @@ function vendorJs() {
 
 function css() {
   return src('app/css/*.css')
+    .pipe(sourcemaps.init())
     .pipe(concat('app.min.css'))
     .pipe(minifyCSS())
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('build/css'))
 }
 
