@@ -7,6 +7,7 @@ const uglify = require('gulp-uglify');
 const inject = require('gulp-inject');
 const removeCode = require('gulp-remove-code');
 var sourcemaps = require('gulp-sourcemaps');
+var watch = require('gulp-watch');
 
 let vendorPackages = [
   'node_modules/jquery/dist/jquery.min.js',
@@ -31,7 +32,7 @@ function js() {
     .pipe(dest('build/js'));
 }
 
-function vendorJs() {
+function vendor_js() {
   return src(vendorPackages)
     .pipe(concat('vendor.min.js'))
     .pipe(dest('build/js'))
@@ -51,6 +52,13 @@ function images() {
     .pipe(dest('build/images'))
 }
 
+function watch_files() {
+  watch('app/*.html', html);
+  watch('app/js/*.js', js);
+  watch('app/css/*.css', css);
+}
+
 exports.js = js;
 exports.css = css;
-exports.default = series(vendorJs, js, css, images, html);
+//exports.default = series(vendor_js, js, css, images, html);
+exports.default = series(vendor_js, js, css, images, html, watch_files);

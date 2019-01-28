@@ -21,7 +21,8 @@
     "gulp-inject": "^5.0.2",
     "gulp-remove-code": "^3.0.4",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "gulp-watch": "^5.0.1"
   },
   "dependencies": {
     "jquery": "^3.3.1"
