@@ -19,8 +19,10 @@ let vendorPackages = [
 
 function html() {
   return src(htmlPaths)
-      .pipe(inject(src(['./build/js/vendor.min.js', './build/js/*.js', './build/**/*.css'], { read: false }),
+      .pipe(inject(src(['./build/js/*.js', './build/**/*.css'], { read: false }),
         {ignorePath: 'build', addRootSlash: false }))
+      .pipe(inject(src(['./build/js/vendor.min.js'], { read: false }),
+        { ignorePath: 'build', addRootSlash: false, starttag: '<!-- inject:vendor-css:{{ext}} -->' }))
       .pipe(removeCode({ production: true }))
       .pipe(dest('build'));
 }

@@ -9,17 +9,4 @@ function displayProducts() {
     }
 }
 
-// var testProducts = `{
-//     "products": [
-//         {
-//             "name": "television",
-//             "price": 299.00,
-//             "available": true
-//         },
-//         {
-//             "name": "recliner",
-//             "price": 199.00,
-//             "available": false
-//         }
-//     ]
-// }`
+var testProducts = '{"products": [{"name": "television","price": 299.00,"available": true},{"name": "recliner","price": 199.00,"available": false}]}'

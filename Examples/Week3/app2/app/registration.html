@@ -1,7 +1,10 @@
 <html>
     <head>
         <title>Registration</title>
-        <link rel='stylesheet' type='text/css' href='styles/app.css'>
+        <!--removeIf(production)-->
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <!--endRemoveIf(production)-->
         
         <!-- inject:css -->
         <!-- endinject -->
@@ -35,5 +38,11 @@
         
         <!-- inject:js -->
         <!-- endinject -->
+
+        <script>
+            $(document).ready(function() {
+                checkRegistration();
+            });
+        </script>
     </body>
 </html>
