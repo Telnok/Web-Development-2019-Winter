@@ -7,18 +7,12 @@ const uglify = require('gulp-uglify');
 const inject = require('gulp-inject');
 const removeCode = require('gulp-remove-code');
 
-let htmlPaths = [
-  'app/index.html', 
-  'app/registration.html', 
-  'app/products.html'
-];
-
 let vendorPackages = [
   'node_modules/jquery/dist/jquery.min.js',
 ];
 
 function html() {
-  return src(htmlPaths)
+  return src(['app/*.html'])
       .pipe(inject(src(['./build/js/*.js', './build/**/*.css'], { read: false }),
         {ignorePath: 'build', addRootSlash: false }))
       .pipe(inject(src(['./build/js/vendor.min.js'], { read: false }),
