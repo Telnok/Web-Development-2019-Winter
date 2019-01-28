@@ -11,8 +11,25 @@ if (score > 90) {
     console.log("Keep working hard!!!\n");
 }
 
-var names = ['Bob', 'Tom', 'Bill'];
+var names = [
+    {
+        name: 'Bob',
+        score: 80
+    },
+    {
+        name: 'Tom',
+        score: 90
+    },
+    {
+        name: 'Bill',
+        score: 100
+    }
+];
 
-for (i = 0; i < names.length; i++) {
-  console.log(names[i]);
+displayNames(names);
+
+function displayNames(names) {
+    for (i = 0; i < names.length; i++) {
+      console.log(names[i].name);
+    }
 }
