@@ -18,7 +18,7 @@ function html() {
       .pipe(inject(src(['./build/js/*.js', './build/**/*.css'], { read: false }),
         {ignorePath: 'build', addRootSlash: false }))
       .pipe(inject(src(['./build/js/vendor.min.js'], { read: false }),
-        { ignorePath: 'build', addRootSlash: false, starttag: '<!-- inject:vendor-css:{{ext}} -->' }))
+        { ignorePath: 'build', addRootSlash: false, starttag: '<!-- inject:vendor-js:{{ext}} -->' }))
       .pipe(removeCode({ production: true }))
       .pipe(dest('build'));
 }
