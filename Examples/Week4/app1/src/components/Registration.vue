@@ -3,32 +3,43 @@
         <h1>Registration</h1>
         <form>
             <div class='form-entry'>
-                First Name: <input type='text'/>
+                First Name: <input type='text' v-model='firstName'/>
             </div>
 
             <div class='form-entry'>
-                Last Name: <input type='text'/>
+                Last Name: <input type='text' v-model='lastName'/>
             </div>
 
             <div class='form-entry'>
-                <input type='button' value='Submit'/>
+                <input type='button' value='Submit' v-on:click='submitRegistration'/>
             </div>
         </form>
 
-        <!-- <div id='error'></div>
-
-        <div class="menu-bar">
-            <span class="menu-item"><a href="index.html">Home</a></span>
-            <span class="menu-item"><a href="products.html">Products</a></span>
-        </div> -->
+        <div>{{error}}</div>
     </div>
 </template>
 
 <script>
     export default {
         name: 'Registration',
+        methods: {
+            submitRegistration: function() {
+                if (this.firstName.length == 0) {
+                    this.error = "First name must be entered.";
+                    return;
+                }
+                if (this.lastName.length == 0) {
+                    this.error = "Last name must be entered.";
+                    return;
+                }
+                alert('Submitting Registration');
+            }
+        },
         data () {
             return {
+                firstName: '',
+                lastName: '',
+                error: ''
             }
         }
     }
