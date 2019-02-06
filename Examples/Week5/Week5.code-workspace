@@ -7,5 +7,7 @@
 			"path": "webapi"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "webapp"
+	}
 }
