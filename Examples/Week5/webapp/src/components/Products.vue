@@ -10,10 +10,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="product in products">
+                <tr v-for="product in products" :key="product.id">
                     <td>{{ product.name }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.available }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>{{ product.available ? 'Yes' : 'No' }}</td>
                 </tr>
             </tbody>
         </table>
@@ -21,16 +21,37 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+
     export default {
         name: 'Products',
-        mounted() {
-            this.products = getProducts();
-        },
+        
         data () {
             return {
                 products: []
             }
-        }
+        },
+
+        methods: {
+            getProducts: function() {
+                // let productsApi = process.env.ROOT_API;
+                let productsApi = 'http://localhost:5000/api/product';
+
+                Vue.axios.get(productsApi).then(
+                    (response) => {
+                        console.log(response)
+                        this.products = response.data;
+                    },
+                    (error) => {
+                        console.log(error)
+                    }
+                );  
+            }
+        },
+
+        mounted() {
+            this.getProducts();
+        },
     }
 
     function getProducts() {
@@ -41,4 +62,14 @@
 </script>
 
 <style scoped>
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
 </style>
